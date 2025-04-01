@@ -1,5 +1,5 @@
 
-Object.assign(data, {
+const data = {
   "legend": {
     3: "Low Immigration",
     6: "Moderate Immigration",
@@ -148,5 +148,5 @@ Object.assign(data, {
     { lat: 35.8617, lng: 104.1954, name: "China", volume: 12 },
     { lat: 19.4326, lng: -99.1332, name: "Mexico", volume: 14 }
   ]
-});
+};
 
