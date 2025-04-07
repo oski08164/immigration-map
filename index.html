@@ -18,8 +18,18 @@
       padding: 1rem;
       background-color: #f0f0f0;
     }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Lexend', sans-serif;
+    }
+    
     #map {
-      flex: 1;
+      height: calc(100vh - 100px); /* Adjust map height to fit below title */
+      width: 100%;
+      z-index: 1;
+      position: relative;
     }
     #slider-container {
       padding: 1rem;
