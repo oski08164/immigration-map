@@ -43,11 +43,27 @@
       border: 1px solid #ccc;
       font-size: 0.9rem;
     }
+  
+    #sidebar {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 300px;
+      height: calc(100% - 60px);
+      overflow-y: auto;
+      background-color: #ffffff;
+      border-left: 1px solid #ccc;
+      padding: 1rem;
+      font-size: 0.9rem;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
   </style>
 </head>
 <body>
   <div id="title">Immigration Patterns Throughout United States History</div>
   <div id="map"></div>
+  <div id="sidebar"></div>
   <div id="slider-container">
     <label for="yearSlider">Year: <span id="yearLabel">1776</span></label>
     <input type="range" id="yearSlider" min="0" max="26" value="0">
@@ -116,14 +132,55 @@
     const yearSlider = document.getElementById('yearSlider');
     const yearLabel = document.getElementById('yearLabel');
 
+    
+    const timelineInfo = {
+      1776: "Declaration of Independence. Immigration from Western Europe begins to grow.",
+      1780: "Post-Revolution economic migration.",
+      1790: "First official U.S. Census; Naturalization Act passed.",
+      1800: "Early Irish immigration surge.",
+      1810: "Westward expansion policies impact migration.",
+      1820: "Immigration Act of 1820 begins data collection.",
+      1830: "Irish immigration increases due to hardship.",
+      1840: "Great Famine in Ireland begins.",
+      1850: "California Gold Rush draws global immigrants.",
+      1860: "Pre-Civil War tensions and immigration.",
+      1870: "Post-Civil War Reconstruction immigration.",
+      1880: "Ellis Island opens, large European influx.",
+      1890: "High tide of European immigration.",
+      1900: "Push for immigration regulation begins.",
+      1910: "Dillingham Commission studies immigration.",
+      1920: "Quota Act restricts immigration.",
+      1930: "Great Depression reduces immigration.",
+      1940: "WWII refugee migration begins.",
+      1950: "Displaced Persons Act helps European refugees.",
+      1960: "Cuban immigration surges.",
+      1970: "Vietnam War leads to Southeast Asian migration.",
+      1980: "Mariel boatlift brings Cuban immigrants.",
+      1990: "Immigration Act of 1990 increases caps.",
+      2000: "Debates over border security rise.",
+      2010: "DACA and Dreamers in political spotlight.",
+      2020: "Pandemic impacts global migration.",
+      2025: "Focus on climate migration and automation impacts."
+    };
+
+    const sidebar = document.getElementById('sidebar');
+
+    function updateSidebar(year) {
+      const info = timelineInfo[year] || "No information available.";
+      sidebar.innerHTML = `<h3>${year}</h3><p>${info}</p>`;
+    }
+
+
     yearSlider.addEventListener('input', e => {
       const year = yearSteps[e.target.value];
       yearLabel.textContent = year;
       updateMap(year);
+      updateSidebar(year);
     });
 
     showLegend();
     updateMap(yearSteps[yearSlider.value]);
+    updateSidebar(yearSteps[yearSlider.value]);
   </script>
   <script src="data.js"></script>
 </body>
