@@ -1,10 +1,7 @@
 
 const data = {
   "legend": {
-    "Line thickness is based on
-      /n the ammount of immigration
-    /n coming from the country
-    /n in question."
+    "Line thickness is based on the ammount of immigration coming from the country in question."
   },
  "1776": [
     { lat: 51.5074, lng: -0.1278, name: "United Kingdom", volume: 10 },
