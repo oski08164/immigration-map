@@ -1,10 +1,10 @@
 
 const data = {
   "legend": {
-    3: "Low Immigration",
-    6: "Moderate Immigration",
-    9: "High Immigration",
-    12: "Very High Immigration"
+    "Line thickness is based on
+      /n the ammount of immigration
+    /n coming from the country
+    /n in question."
   },
  "1776": [
     { lat: 51.5074, lng: -0.1278, name: "United Kingdom", volume: 10 },
